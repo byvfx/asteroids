@@ -16,13 +16,6 @@ class CircleShape(pygame.sprite.Sprite):
     def draw(self, screen):
         # Draw the shape using the triangle points
         pygame.draw.polygon(screen, "white", self.triangle(), 2)
-        #pygame.draw.circle(screen, "white", (int(self.position.x), int(self.position.y)), self.radius, 2)
 
     def update(self, dt):
         self.position += self.velocity * dt
-        
-    def collides_with(self, other):
-        """Check if this shape collides with another CircleShape"""
-        # Simple circle collision detection
-        distance = self.position.distance_to(other.position)
-        return distance < (self.radius + other.radius)
